@@ -1,0 +1,36 @@
+{
+  "name": "denue-query",
+  "version": "1.0.0",
+  "type": "module",
+  "bin": "build/bundle.js",
+  "main": "build/index.js",
+  "engines": {
+    "node": ">=18.0.0 <19.0.0"
+  },
+  "scripts": {
+    "build": "tsc && esbuild build/index.js --bundle --platform=node --outfile=build/bundle.js",
+    "start": "npm run build && node build/index.js",
+    "dev": "tsc-watch --onSuccess \"node build/index.js\"",
+    "package:nexe": "npm run build && nexe build/index.js -o dist/denue-query_nexe --build",
+    "package:pkg": "npm run build && pkg build/bundle.js --output dist/denue-query_pkg --target node18-macos-x64,node18-win-x64",
+    "package": "npm run package:pkg"
+  },
+  "dependencies": {
+    "axios": "^1.8.2",
+    "dayjs": "^1.11.13",
+    "envalid": "^8.0.0",
+    "esbuild": "^0.25.1",
+    "exceljs": "^4.4.0",
+    "inquirer": "^12.4.3",
+    "nexe": "^5.0.0-beta.4",
+    "ora": "^5.4.1",
+    "pkg": "^5.8.1"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.7",
+    "@types/node": "^18.19.80",
+    "@types/ora": "^3.1.0",
+    "tsc-watch": "^6.2.1",
+    "typescript": "^5.8.2"
+  }
+}
