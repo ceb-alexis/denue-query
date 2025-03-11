@@ -403,7 +403,6 @@ const fetchDataSimpleSearch = async (
   radius: number
 ): Promise<DenueRecord[] | null> => {
   const encodedSearch = encodeURIComponent(keywords);
-  console.log(encodedSearch);
   const url = `https://www.inegi.org.mx/app/api/denue/v1/consulta/Buscar/${encodedSearch}/${latitude},${longitude}/${radius}/${token}`;
   const spinner = ora("⏳ Buscando...").start();
   try {
